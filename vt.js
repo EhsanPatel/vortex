@@ -1,5 +1,10 @@
 window.onload = (event) => {
-  document.querySelector('[data-type-vt="title"]').innerText = "This has been replaced with the new title";
-  document.querySelector('[data-type-vt="sku"]').innerText = "This has been replaced with an SKU";
-  document.querySelector('[data-type-vt="description"]').innerText = "This has been replaced with the description";
+  fetch( 'https://vt.ehsanpatel.repl.co/api.php/SKU/VT-RZR-63601' )
+    .then( response => response.json() )
+    .then( response => {
+        document.querySelector('[data-type-vt="title"]').innerText = response.title;
+        document.querySelector('[data-type-vt="sku"]').innerText = response.sku;
+        document.querySelector('[data-type-vt="description"]').innerText = response.description;
+    } );
+  
 };
