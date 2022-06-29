@@ -1,5 +1,6 @@
 window.onload = (event) => {
-  fetch( 'https://vt.ehsanpatel.repl.co/api.php/SKU/VT-RZR-63601' )
+  sku = document.querySelector("meta[property='sku']").getAttribute("content");
+  fetch( 'https://vt.ehsanpatel.repl.co/api.php/SKU/' + sku )
     .then( response => response.json() )
     .then( response => {
         document.querySelector('[data-type-vt="title"]').innerText = response.name;
